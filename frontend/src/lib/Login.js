@@ -21,9 +21,10 @@ const Login = ( { user, setUser, setHomeClicked, setIsLoggedIn } ) => {
         if (r.ok) {
             r.json().then(setUser)
             setIsLoggedIn(true)
+        }
+    }).then(() => {
             setHomeClicked(true)
             history.push("/");
-        }
     })
     }
 

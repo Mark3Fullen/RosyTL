@@ -13,6 +13,7 @@ const Navbar = ( {user, setUser, homeClicked, setHomeClicked, setIsLoggedIn, isL
         fetch("/logout", {method: "DELETE"}).then((r) => {
             if (r.ok) {
                 setUser({});
+                setIsLoggedIn(false);
                 history.push("/");
             }
         })
@@ -69,7 +70,7 @@ const Navbar = ( {user, setUser, homeClicked, setHomeClicked, setIsLoggedIn, isL
 
             {isLoggedIn > 0 ? (
                 <NavLink to="/">
-                    <Button variant="outlined" onClick={setIsLoggedIn(false)} onClick={handleLogoutClick}>Logout</Button>
+                    <Button variant="outlined" onClick={handleLogoutClick}>Logout</Button>
                 </NavLink>
             ) : null}
 

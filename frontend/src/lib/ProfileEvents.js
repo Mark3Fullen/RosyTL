@@ -79,7 +79,7 @@ function ProfileEvents( { user, setHomeClicked, setUserClicked } ) {
                             <br/>
                             <Button variant="contained"type="submit">Submit Update</Button>
                             <br/>
-                            <Button variant="contained"onClick={e => handleEventDelete(e, event)}>Delete Blog</Button>
+                            <Button variant="contained"onClick={e => handleEventDelete(e, event)}>Delete Entry</Button>
                             </Stack>
                         </form> : null}
 

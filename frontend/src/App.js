@@ -29,25 +29,20 @@ function App() {
     .then((res) => setUser(res))
   }, [userClicked])
 
-  function homeClickCheckered(homeClicked) {
+  function homeClickCheckered(homeClicked, userClicked) {
       if (homeClicked === true) {
         console.log("Thanks, bruh")
         setHomeClicked(false);
       }
+
+      if (userClicked === true) {
+        console.log("Thanks, dawg")
+        setUserClicked(false);
+      }
   }
 
-  function userClickCheckered(userClicked) {
-    if (userClicked === true) {
-      console.log("Thanks, dawg")
-      setUserClicked(false);
-    }
-  }
+  homeClickCheckered(homeClicked, userClicked);  
 
-  homeClickCheckered(homeClicked);
-  userClickCheckered(userClicked);
-  
-
-  console.log(user);
   console.log(isLoggedIn);
   // console.log(events);
 
@@ -76,7 +71,7 @@ function App() {
       </Route>
 
       <Route path="/newevent" className="NewEvent">
-        <NewEvent user={user} homeClicked={homeClicked} setHomeClicked={setHomeClicked}/>
+        <NewEvent user={user} homeClicked={homeClicked} setHomeClicked={setHomeClicked} setEvents={setEvents}/>
       </Route>
 
       <Route path="/about" className="About">

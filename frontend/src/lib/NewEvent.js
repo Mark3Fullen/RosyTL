@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
-const NewEvent = ( { user, homeClicked, setHomeClicked } ) => {
+const NewEvent = ( { user, homeClicked, setHomeClicked, setEvents } ) => {
     const history = useHistory();
     const [title, setTitle] = useState("");
     const [cardTitle, setCardTitle] = useState("");
@@ -28,8 +28,9 @@ const NewEvent = ( { user, homeClicked, setHomeClicked } ) => {
               user_id: user.id
             }),
           })
-          .then(() => {setHomeClicked(true);
-                        history.push("/");})
+          .then(() => setHomeClicked(true))
+          .then(() => history.push("/"))
+
 
     }
 
