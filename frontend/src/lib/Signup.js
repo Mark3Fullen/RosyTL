@@ -4,7 +4,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-const Signup = ( { user, setUser } ) => {
+const Signup = ( { user, setUser, setIsLoggedIn } ) => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,6 +28,7 @@ const Signup = ( { user, setUser } ) => {
           if (r.ok) {
             r.json().then((user) => {
               setUser(user);
+              setIsLoggedIn(true);
               history.push("/");
             });
           }

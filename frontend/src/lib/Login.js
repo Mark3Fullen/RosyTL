@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 
 
-const Login = ( { user, setUser, setHomeClicked } ) => {
+const Login = ( { user, setUser, setHomeClicked, setIsLoggedIn } ) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
@@ -20,6 +20,7 @@ const Login = ( { user, setUser, setHomeClicked } ) => {
     }).then((r) => {
         if (r.ok) {
             r.json().then(setUser)
+            setIsLoggedIn(true)
             setHomeClicked(true)
             history.push("/");
         }

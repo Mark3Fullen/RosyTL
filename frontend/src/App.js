@@ -14,6 +14,7 @@ function App() {
   const [events, setEvents] = useState([]);
   const [homeClicked, setHomeClicked] = useState(true);
   const [userClicked, setUserClicked] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     fetch("/data")
@@ -23,7 +24,7 @@ function App() {
   }, [homeClicked]);
 
   useEffect(() => {
-    fetch(`/me`)
+    fetch(`/users/${user.id}`)
     .then((r) => r.json())
     .then((res) => setUser(res))
   }, [userClicked])
@@ -47,13 +48,14 @@ function App() {
   
 
   console.log(user);
+  console.log(isLoggedIn);
   // console.log(events);
 
   return (
     <div style={{ background: 'linear-gradient(white, red)', height: '200'}}>
 
     <BrowserRouter className="App">
-      <Navbar user={user} setUser={setUser} homeClicked={homeClicked} setHomeClicked={setHomeClicked}/>
+      <Navbar user={user} setUser={setUser} homeClicked={homeClicked} setHomeClicked={setHomeClicked} setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn}/>
 
       <br/>
       
@@ -62,7 +64,7 @@ function App() {
       </Route>
 
       <Route path="/signup" className="Signup"> 
-        <Signup user={user} setUser={setUser} />
+        <Signup user={user} setUser={setUser} setIsLoggedIn={setIsLoggedIn}/>
       </Route>
 
       <Route path="/profile" className="Profile">
@@ -70,7 +72,7 @@ function App() {
       </Route>
 
       <Route path="/login" className="Login">
-        <Login user={user} setUser={setUser} setHomeClicked={setHomeClicked}/>
+        <Login user={user} setUser={setUser} setHomeClicked={setHomeClicked} setIsLoggedIn={setIsLoggedIn}/>
       </Route>
 
       <Route path="/newevent" className="NewEvent">

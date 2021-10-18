@@ -6,7 +6,7 @@ import YRose from '../IMGs/ToorkyBoi.jpg'
 import LRose from "../IMGs/LancyBoi.jpg"
 
 
-const Navbar = ( {user, setUser, homeClicked, setHomeClicked} ) => {
+const Navbar = ( {user, setUser, homeClicked, setHomeClicked, setIsLoggedIn, isLoggedIn} ) => {
     const history = useHistory();
 
     function handleLogoutClick() {
@@ -30,6 +30,8 @@ const Navbar = ( {user, setUser, homeClicked, setHomeClicked} ) => {
             </Stack>
 
             <br/>
+                {user.length > 0 ? <p>Welcome, {user.name}</p> : null}
+            <br/>
 
         <nav className="NavBar">
 
@@ -41,33 +43,33 @@ const Navbar = ( {user, setUser, homeClicked, setHomeClicked} ) => {
                 <Button variant="outlined">Home</Button>
             </NavLink>
 
-            {Object.keys(user).length > 0 ? (
+            {isLoggedIn > 0 ? (
                 <NavLink to="/newevent">
                     <Button variant="outlined">New Entry</Button>
                 </NavLink>
             ) : null}
 
-            {Object.keys(user).length === 0 ? (
+            {!isLoggedIn ? (
             <NavLink to="/signup">
                 <Button variant="outlined">Sign Up</Button>
             </NavLink>
             ) : null}
 
-            {Object.keys(user).length > 0 ? (
+            {isLoggedIn ? (
             <NavLink to="/profile">
                 <Button variant="outlined">Profile</Button>
             </NavLink>
             ) : null}
 
-            {Object.keys(user).length === 0 ? (
+            {!isLoggedIn ? (
                 <NavLink to="/login">
                     <Button variant="outlined">Login</Button>
                 </NavLink>
             ) : null}
 
-            {Object.keys(user).length > 0 ? (
+            {isLoggedIn > 0 ? (
                 <NavLink to="/">
-                    <Button variant="outlined" onClick={handleLogoutClick}>Logout</Button>
+                    <Button variant="outlined" onClick={setIsLoggedIn(false)} onClick={handleLogoutClick}>Logout</Button>
                 </NavLink>
             ) : null}
 
