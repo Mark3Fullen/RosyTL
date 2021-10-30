@@ -10,8 +10,14 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  <<: *default
-  database: db/development
+  adapter: postgresql
+  encoding: unicode
+  database: rosy_development
+  pool: 5
+  username: rosy
+  password:
+  min_messages: WARNING
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

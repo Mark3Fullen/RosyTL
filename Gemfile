@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -11,7 +11,7 @@ gem 'puma', '~> 5.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'pg'
+gem 'pg', '~> 1.1'
 
 gem "rake"
 
