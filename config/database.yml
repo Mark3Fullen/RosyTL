@@ -5,7 +5,7 @@ development:
   encoding: UTF-8
   database: rosytl_development
   host: localhost
-  username: shavatar
+  username: postgres
   password: gamefreak
 
 test:
