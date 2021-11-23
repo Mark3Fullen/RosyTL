@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2021_09_28_000849) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "event_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_28_000849) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.string "title"
     t.string "cardTitle"
     t.string "cardSubtitle"

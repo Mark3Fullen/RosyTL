@@ -42,13 +42,13 @@ const Signup = ( { user, setUser, setIsLoggedIn } ) => {
             <Stack alignItems="center" spacing={1}>
                 <p>Signup Here!</p>
                 <br/>
-                <TextField type="text" placeholder="enter name" value={name} onChange={e => setName(e.target.value)} />
+                <TextField type="text" placeholder="Enter Name" value={name} onChange={e => setName(e.target.value)} />
                 <br/>
-                <TextField type="email" placeholder="enter email" value={email} onChange={e => setEmail(e.target.value)} />
+                <TextField type="email" placeholder="Enter Email" value={email} onChange={e => setEmail(e.target.value)} />
                 <br/>
-                <TextField type="password" placeholder="enter password" value={password} onChange={e => setPassword(e.target.value)} />
+                <TextField type="password" placeholder="Enter Password" value={password} onChange={e => setPassword(e.target.value)} />
                 <br/>
-                <TextField type="password" placeholder="confirm password" value={passwordConfirmation} onChange={e => setPasswordConfirmation(e.target.value)}/>
+                <TextField type="password" placeholder="Confirm Password" value={passwordConfirmation} onChange={e => setPasswordConfirmation(e.target.value)}/>
                 <br/>
                 <Button variant="contained" type="submit">Create Account</Button>
                 <br/>
