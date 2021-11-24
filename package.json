@@ -1048,8 +1048,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "npm start --prefix-client",
-    "start": "npm start --prefix-client",
+    "test": "npm start",
+    "start": "npm start",
     "heroku-prebuild": "npm install -f",
     "heroku-postbuild": "npm run build"
   },
